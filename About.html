@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+<style>
+        body {
+            font-family: sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: grey;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+        }
+
+        #menu-icon {
+            display: none;
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            cursor: pointer;
+        }
+
+        nav {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 1em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About Our Medical Store</h1>
+    <div id="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Our Commitment to Your Health</h2>
+    <p>Welcome to our medical store, where your health and well-being are our utmost priorities. <br>
+        With a commitment to providing quality products and excellent service, we strive to be your trusted <br>
+        partner in maintaining a healthy lifestyle.</p>
+
+    <h2>What Sets Us Apart</h2>
+    <p>At our medical store, we understand the importance of accessible and reliable healthcare solutions. <br>
+        Here's what sets us apart:</p>
+    <ul>
+        <li>Wide Range of Medications: From essential pain relief medications to specialty products, <br>
+            we offer a comprehensive selection to meet your health needs.</li>
+        <li>Quality Medical Supplies: Our medical supplies, including first aid kits,<br>
+         bandages, and health monitors, are sourced from reputable manufacturers to ensure<br>
+          effectiveness and safety.</li>
+        <li>Health Essentials and More: Explore our range of health essentials, vitamins, supplements, <br>
+            personal care products, and more to support your overall well-being.</li>
+        <li>Specialized Care: Whether you require diabetic supplies, baby care essentials, <br>
+            orthopedic support, or elderly care products, we have you covered with specialized items.</li>
+    </ul>
+
+    <h2>Contact Us</h2>
+    <p>Visit our store today or contact us for any inquiries. <br>
+        Your health journey is important to us, and we are here to assist you every step of the way.</p>
+</div>
+
+<script>
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('show');
+    }
+</script>
+
+</body>
+</html>

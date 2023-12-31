@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Store - Place Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Medical Store - Place Order</h1>
+    </header>
+
+    <main>
+     <form onsubmit="return validateForm()">
+            
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="deliveryMethod">Delivery Method:</label>
+            <select id="deliveryMethod" name="deliveryMethod" required>
+                <option value="standard">Standard Delivery</option>
+                <option value="express">Express Delivery</option>
+            </select>
+
+            <label for="additionalInfo">Additional Information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </main>
+   <!--- <script>
+        function validateForm() {
+            var productName = document.getElementById("productName").value;
+            var quantity = document.getElementById("quantity").value;
+            var deliveryMethod = document.getElementById("deliveryMethod").value;
+
+            if (!productName || !quantity || !deliveryMethod) {
+                alert("Please fill out all required fields.");
+                return false;
+            }
+
+            // Additional validation logic can be added here if needed
+
+            alert("Order placed successfully!");
+            return true;
+        }
+    </script>-->
+
+
+</body>
+
+</html>
+
+       
+    

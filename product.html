@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Store Products</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:grey;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+        }
+
+        #menu-icon {
+            display: none;
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            cursor: pointer;
+        }
+
+        nav {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 1em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        select option {
+            font-size: 1em;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Medical Store Products</h1>
+    <div id="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Categories</h2>
+
+    <label for="category">Select Category:</label>
+    <select id="category" onchange="updateSubcategories()">
+        <option value="" selected disabled>Select Category</option>
+        <option value="medication">Medication</option>
+        <option value="medicalSupplies">Medical Supplies</option>
+        <option value="healthEssential">Health Essential</option>
+        <option value="specialtyProducts">Specialty Products</option>
+    </select>
+
+    <label for="subcategory">Select Subcategory:</label>
+    <select id="subcategory">
+        <option value="" selected disabled>Select Subcategory</option>
+    </select>
+</div>
+
+<script>
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('show');
+    }
+
+    function updateSubcategories() {
+        var category = document.getElementById("category").value;
+        var subcategorySelect = document.getElementById("subcategory");
+
+        // Clear existing options
+        subcategorySelect.innerHTML = '<option value="" selected disabled>Select Subcategory</option>';
+
+        // Define subcategories based on the selected category
+        var subcategories = [];
+        switch (category) {
+            case "medication":
+                subcategories = ["Pain Relief Medication", "Cold and Cough Remedies", "Allergy Medication", "Prescription Medication"];
+                break;
+            case "medicalSupplies":
+                subcategories = ["First Aid Kit", "Bandages and Dressings", "Thermometers", "Health Monitors"];
+                break;
+            case "healthEssential":
+                subcategories = ["Vitamins and Supplements", "Personal Care Products", "Skin Care Items", "Oral Health Products"];
+                break;
+            case "specialtyProducts":
+                subcategories = ["Diabetic Supplies", "Babies Care Essentials", "Orthopedic Support", "Elderly Care Products"];
+                break;
+            default:
+                break;
+        }
+
+        // Populate subcategory dropdown
+        subcategories.forEach(function (value) {
+            var option = document.createElement("option");
+            option.text = value;
+            option.value = value.toLowerCase().replace(/\s+/g, ''); // Convert to lowercase and remove spaces
+            subcategorySelect.add(option);
+        });
+    }
+</script>
+
+</body>
+</html>
